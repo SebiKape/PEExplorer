@@ -730,10 +730,10 @@ def engineTSFC(Mach, altitude, airplane):
             else:
                 Cbase = 0.70/3600
         
-        #else:
+        else:
     
-            #Correct Cbase so that the equation gives the desired static TSFC at sea-level
-            #Cbase = Cbase/(1-0.15*BPR**0.65)
+            # Correct Cbase so that the equation gives the desired static TSFC at sea-level
+            Cbase = Cbase/(1-0.15*BPR**0.65)
     
         # Howe Eq 3.12a
         C = Cbase*(1-0.15*BPR**0.65)*(1+0.28*(1+0.063*BPR**2)*Mach)*sigma**0.08
@@ -2880,13 +2880,13 @@ def plot3d(airplane, figname='3dview.png', az1=45, az2=-135):
     # Water Spray
     if x_nlg is not None:
         ax.plot([x_nlg         , x_nlg+10/np.tan(22*np.pi/180)],
-                [0.0          , 4.8 ],
+                [0.0          , 10 ],
                 [0.0, 0.0],'k--')
     
     
         # Water Spray
         ax.plot([x_nlg         , x_nlg+10/np.tan(22*np.pi/180)],
-                [0.0          , -4.8 ],
+                [0.0          , -10 ],
                 [0.0, 0.0],'k--')
 
 
